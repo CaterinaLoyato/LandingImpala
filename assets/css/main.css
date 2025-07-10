@@ -19,9 +19,9 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #b1c9d1; /* Background color for the entire website, including individual sections */
+  --background-color: #f1f1f1 ; /* Background color for the entire website, including individual sections */0
   --default-color: #000000; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
+  --heading-color: #2E4A62; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #ffffff; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #b1c9d1; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -39,12 +39,12 @@
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f9f8ff;
+  --background-color: #E0DBEC;
   --surface-color: #ffffff;
 }
 
 .dark-background {
-  --background-color: #b1c9d1;
+  --background-color: #9EBBAE;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #92aab6;
@@ -52,7 +52,7 @@
 }
 
 .accent-background {
-  --background-color: #92aab6;
+  --background-color: #9EBBAE;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --accent-color: #ffffff;
@@ -784,98 +784,52 @@ section,
   overflow:hidden
   display: flex;
   align-items: center;
-  background: url("../img/hero.png") center center no-repeat;
+  background: url("../img/fondohero-12.png") center center no-repeat;
   background-size: cover;
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-}
-
-.hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin: 5px 0 30px 0;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.hero .btn-ver-mas {
-  color:  #b1c9d1 ;
-  font-family: var(--heading-font);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 36px;
-  border-radius: 4px;
-  transition: 0.5s;
-  border: 3px solid #92aab6;
+/* Imagen PNG superpuesta */
+.png-superpuesta {
   position: absolute;
-  top: 530px;   /* Empieza con un porcentaje, por ejemplo, 70% desde arriba del hero */
-  left: 250px;  /* Ajusta este valor para el margen desde la parte inferior */
-  z-index: 10; /* Asegura que esté por encima de otros elementos si hay superposiciones*/
-}
-    
-.hero .btn-ver-mas {
-  color: #92aab6;
-  background: #ffffff;
-}
-.hero .btn-ver-mas:hover {
-  color: #ffffff;
-  background: #b1c9d1;
-  border: 3px solid #b1c9d1
+  top: 130px;
+  left: -70px;
+  width: 760px;
+  height: auto;
+  z-index: 2;
 }
 
-.hero .btn-watch-video {
-  font-size: 16px;
-  transition: 0.5s;
-  margin-left: 25px;
-  color: var(--default-color);
-  font-weight: 600;
+/* Contenido del hero */
+.contenido {
+  position: relative;
+  z-index: 3;
+  color: white;
+  max-width: 600px;
 }
 
-.hero .btn-watch-video i {
-  color: var(--accent-color);
-  font-size: 32px;
-  transition: 0.3s;
-  line-height: 0;
-  margin-right: 8px;
-}
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    height: auto;
+    text-align: left;
+  }
 
-.hero .btn-watch-video:hover {
-  color: var(--accent-color);
-}
+  .png-superpuesta {
+    width: 80px;
+    top: 20px;
+    left: 20px;
+  }
 
-.hero .btn-watch-video:hover i {
-  color: color-mix(in srgb, var(--accent-color), transparent 15%);
-}
+  .contenido {
+    margin-top: 150px; /* espacio para que no tape el PNG */
+  }
 
 .hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 
-@media (max-width: 640px) {
-  .hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  .hero p {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
-
-    .hero .btn-get-started{
-        color:#ffffff
-    }
-  .hero .btn-watch-video {
-    font-size: 13px;
-  }
-}
 
 @keyframes up-down {
   0% {
@@ -891,62 +845,52 @@ section,
 # About Section
 --------------------------------------------------------------*/
 
-.about {
-      background: url("../img/fondo2.png") center center no-repeat;
-  background-size: cover;
+section#about.about { /* Usamos el ID y las clases para la máxima especificidad */
+  background-color: #9EBBAE !important; /* ¡Añadimos !important aquí para forzar el color! */
+  padding: 90px 0px;
 }
-.info{
- position: relative
- margin: 20px:
+.about img.info {
+  max-width: 100% ;
+  width: 150% ; /* ajustá si querés más grande */
+  height: auto ;
+}
+
+.about .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 70px ;
 }
 
 .about .content h3 {
-  font-size: 70px;
-  font-weight: 700;
-  padding-top: 130px
-  
+  font-size: 40px ;
+  font-weight: bold ;
+  margin-top: 180px;
+  text-align: center;
 }
 
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-
-.about .content p:last-child {
-  margin-bottom: 0;
-}
-
-.about .content .read-more {
-  background: #f6d385 ;
-  color: #fff ;
-  font-family: var(--heading-font);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 12px 24px;
-  border-radius: 5px;
-  transition: 0.3s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about .content .read-more i {
+.about .content span {
   font-size: 18px;
-  margin-left: 5px;
-  line-height: 0;
-  transition: 0.3s;
+  line-height: 1.6;
+  text-align: justify;
 }
 
-.about .content .read-more:hover {
-  background: #fff6b5 ;
-  padding-right: 19px;
+    @media (max-width: 768px) {
+  .about .content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .about .content span {
+    text-align: justify;
+  }
+
+  .about img.info {
+    width: 80%;
+    margin-top: 20px;
+  }
 }
 
-.about .content .read-more:hover i {
-  margin-left: 10px;
-}
 
 /*--------------------------------------------------------------
 # Stats Section
@@ -955,68 +899,93 @@ section,
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
-.services{
-background: url("../img/d2-05.png");
- background-size: cover;
-background-position: center
-    
+/* Sección de Servicios - si tiene un fondo o padding general */
+/* Sección general de Servicios */
+.services {
+    background-color: #f2f2f6; /* Fondo gris muy claro para toda la sección */
+    padding: 60px 0; /* Espacio superior e inferior para la sección */
+    /* Asegúrate de que el título "CARACTERÍSTICAS" esté centrado si está directamente en .services */
 }
-    
+
+/* Contenedor de cada característica (service-item) */
 .services .service-item {
-  position: relative;
-  padding-top: 10px;
+    position: relative;
+    padding: 0; /* No parece tener padding en la imagen de objetivo */
+    background-color: transparent; /* ¡No es una tarjeta con fondo blanco! */
+    box-shadow: none; /* No tiene sombra */
+    border-radius: 0; /* No tiene bordes redondeados como tarjeta */
+    margin-bottom: 30px; /* Espacio entre los items en la grilla */
+
+    /* ¡CLAVE PARA LA DISPOSICIÓN HORIZONTAL y alineación! */
+    display: flex !important; /* Mantiene el icono al lado del texto */
+    align-items: center !important;   /* ¡Alinea verticalmente (centra) el icono y el bloque de texto! */
+    text-align: left;      /* Alinea el texto a la izquierda */
 }
 
+/* El div que contiene el icono (la forma irregular) */
 .services .service-item .icon {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 100%);
-  width: 52px;
-  height: 52px;
-  position: relative;
-  margin-right: 15px;
-  line-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ease-in-out 0.3s;
+    /* En la imagen, la forma morada irregular parece ser PARTE de la imagen PNG misma,
+       o el div .icon tiene un background-image. Asumo que es parte de la imagen. */
+    background-color: transparent; /* No un color de fondo para el círculo */
+    width: 10px !important; /* Ajusta este tamaño para que la forma se vea bien. Es más pequeño que antes. */
+    height: 30px !important; /* Mismo tamaño para mantener la proporción de la forma */
+    position: relative !important;
+    margin-right: 15px !important; /* Espacio entre el icono y el texto */
+    display: flex !important; /* Para centrar la imagen PNG dentro de este div (si es más pequeña) */
+    align-items: center !important;   /* Centra verticalmente la imagen PNG */
+    justify-content: center !important; /* Centra horizontalmente la imagen PNG */
+    transition: ease-in-out 0.3s !important;
+    /* NO border-radius: 50%; ya que la forma es irregular. */
+    flex-shrink: 0; /* Evita que el icono se encoja en pantallas pequeñas */
 }
 
-.services .service-item .icon i {
-  color: var(--accent-color);
-  font-size: 32px;
-  z-index: 2;
-  position: relative;
+/* La imagen PNG del icono (la que tiene la forma irregular y el símbolo dentro) */
+.services .service-item .icon img.service-icon-png {
+    width: 50% !important; /* La imagen PNG debe ocupar todo el ancho del div .icon */
+    height: auto !important; /* Mantiene la proporción */
+    display: block !important;
+    /* Si la imagen ya tiene la forma y el color, no se necesita filtro a menos que quieras hover */
+    /* filter: brightness(0) invert(1); /* Opcional: si la imagen oscura debe volverse blanca en hover */
 }
 
-.service-icon-png {
-  max-width: 150%;  /* Ajusta este porcentaje: La imagen PNG ocupará el 70% del ancho del cuadrado de 52px */
-  max-height: 150%; /* Y el 70% del alto */
-}
-
-
+/* Título de la característica */
 .services .service-item .title {
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 5px; /* Espacio entre el título y la descripción */
   font-size: 18px;
+  line-height: 1.2;
+  text-align: left; /* Alineado a la izquierda */
 }
 
 .services .service-item .title a {
-  color: var(--heading-color);
+  color: var(--heading-color); /* Color del texto del título */
+  text-decoration: none; /* Quita el subrayado del enlace */
 }
 
+.services .service-item .title a:hover {
+  color: var(--accent-color);
+}
 
-
+/* Descripción de la característica */
 .services .service-item .description {
   font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 0; /* Elimina margen inferior extra si es el último elemento */
+  text-align: left; /* Alineado a la izquierda */
 }
 
-
+/* Efecto hover: si quieres algún cambio al pasar el ratón por encima del service-item */
+/* En la imagen, al hacer hover parece que el icono se ilumina o el símbolo cambia de color.
+   Esto es más complejo y requeriría una imagen de hover o filtros CSS específicos.
+   Por ahora, solo el efecto de transición del icono si lo tenías. */
+.services .service-item:hover .icon {
+  /* Si la imagen es la que tiene la forma, cambiar su color es más complejo.
+     Podrías tener dos versiones de la imagen (una normal, otra con hover color)
+     o usar filtros CSS (ej. filter: brightness(1.2);). */
+}
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
-.features{background: url("../img/gg-03.png");
- background-size: cover;
-}
-
 
 .features .features-image {
   position: relative;
@@ -1041,94 +1010,118 @@ background-position: center
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin: 0;
 }
-
+    
+    
 /*--------------------------------------------------------------
-# Testimonials Section
+# Sección de Información Útil (basada en Testimonials) - CSS REVISADO
 --------------------------------------------------------------*/
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
+.testimonials { /* O .informacion-util-section si cambiaste la clase de la sección */
+    background-color: #e6e6e6; /* Fondo gris claro de la sección */
+    padding: 60px 0;
 }
 
-.testimonials .testimonial-item {
-  box-sizing: border-box; /* Asegura que padding y border se incluyan en el tamaño total */
-  min-height: auto; /* Permite que la altura se ajuste al contenido (imagen + texto) */
-  display: flex; /* Habilita Flexbox */
-  flex-direction: column; /* Apila los elementos internos verticalmente */
-  align-items: center; /* Centra horizontalmente los elementos (placeholder, h3, h4) */
-  text-align: center; /* Centra el texto dentro de h3 y h4 */
-
-  /* Propiedades para la imagen de fondo rectangular */
-  background-color: transparent; /* Hace el fondo del .testimonial-item transparente para ver la PNG */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-size: contain; /* **Clave:** Escala la imagen para que quepa completamente sin recortarse. Habrá espacio vacío si la relación de aspecto no coincide. */
-  background-position: center top; /* Posiciona la imagen de fondo en la parte superior y centrada */
-
-  /* Padding general para la tarjeta del testimonio. Ajusta si tu PNG de fondo requiere más espacio interior. */
-  padding: 20px;
-  /* Si deseas un borde o sombra alrededor de toda la tarjeta, añádelo aquí */
-  /* border: 1px solid #eee; */
-  /* border-radius: 8px; */
-  /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+.testimonials .section-title h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #404040;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Regla para el placeholder: Lo ocultamos por completo para que el círculo no se vea */
+.testimonials .swiper { /* Contenedor del carrusel Swiper */
+    padding-bottom: 30px; /* Deja espacio para la paginación */
+}
+
+.testimonials .swiper-slide {
+    display: flex; /* Convierte cada slide en un contenedor flex */
+    flex-direction: column; /* Apila los ítems verticalmente */
+    align-items: center; /* Centra horizontalmente el círculo y el texto */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Padding interno para cada slide si lo necesitas */
+}
+
+.testimonials .testimonial-item { /* Este es ahora SOLO el contenedor de la IMAGEN CIRCULAR */
+    box-sizing: border-box;
+    
+    /* Propiedades para la imagen de fondo circular */
+    background-repeat: no-repeat;
+    background-size: cover; /* La imagen cubre todo el contenedor */
+    background-position: center center; /* Centra la imagen */
+
+    /* Tamaño y forma del círculo */
+    width: 100px; /* Diámetro del círculo */
+    height: 200px; /* Diámetro del círculo */
+    border-radius: 50%; /* ¡CLAVE! Hace que el contenedor sea un círculo */
+    overflow: hidden; /* Recorta la imagen a la forma circular */
+
+    /* Borde blanco alrededor del círculo y sombra */
+    border: 5px solid white; 
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2); 
+
+    margin-bottom: 15px; /* Espacio entre el círculo y el título */
+    position: relative; /* Para posicionar la estrella si es un elemento aparte */
+}
+
 .testimonials .testimonial-item .testimonial-img-placeholder {
-   display: none; /* Esto oculta el div del círculo */
+    display: none; /* Oculta este div por completo */
 }
 
-.testimonials .testimonial-item h3 {
-  color: #
-  font-size: 25px;
-  font-weight: bold;
-  /* Ajusta estos márgenes para controlar el espacio entre la imagen y el nombre */
-  margin-top: 200px; /* Espacio entre la imagen (que estará en la parte superior) y el nombre */
-  margin-bottom: 5px; /* Espacio entre el nombre y la profesión */
-  /* margin-left y margin-right pueden ser auto para centrar si 'align-items: center' no es suficiente por alguna razón */
-  margin-left: auto;
-  margin-right: auto;
+/* Los h3 y h4 ahora son hijos directos de swiper-slide */
+.testimonials .swiper-slide h3 {
+    font-size: 10px; /* Tamaño del título */
+    font-weight: bold;
+    color: #000000; /* Color del texto */
+    margin-top: 0; /* Ya tenemos margen en el .testimonial-item */
+    margin-bottom: 5px;
 }
 
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  /* Ajusta este margen para controlar el espacio debajo de la profesión */
-  margin-top: 0;
-  margin-bottom: 0px; /* Espacio debajo de la profesión antes del borde inferior de la tarjeta */
-  margin-left: auto;
-  margin-right: auto;
+.testimonials .swiper-slide h4 {
+    font-size: 14px; /* Tamaño de la descripción */
+    color: #808080; /* Color más claro */
+    margin-top: 10;
+    margin-bottom: 0;
 }
 
-/* **ELIMINAMOS TODAS LAS REGLAS RELACIONADAS CON LAS COMILLAS Y EL PÁRRAFO** */
-/* Las siguientes reglas ya NO deben estar en tu CSS: */
-/* .testimonials .testimonial-item .quote-icon-left, */
-/* .testimonials .testimonial-item .quote-icon-right { ... } */
-/* .testimonials .testimonial-item .quote-icon-left { ... } */
-/* .testimonials .testimonial-item .quote-icon-right { ... } */
-/* .testimonials .testimonial-item p { ... } */
+/* La estrella: si es una imagen real superpuesta */
+/* Necesitarías añadir la imagen de la estrella en tu HTML dentro de .testimonial-item */
+/* Ejemplo de HTML para la estrella:
+   <div class="testimonial-item" style="...">
+     <img src="assets/img/star.png" class="star-icon" alt="Star"> 
+     <div class="testimonial-img-placeholder"></div> 
+   </div>
+*/
+/* .testimonials .testimonial-item .star-icon {
+    position: absolute;
+    top: 0px; 
+    right: 0px; 
+    width: 40px; 
+    height: 40px; 
+    z-index: 2; 
+} */
 
 
-.testimonials .swiper-wrapper {
-  height: auto;
-}
-
+/* Estilos de paginación Swiper (los puntos de abajo) */
 .testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
+    margin-top: 30px;
+    position: relative; /* Ajusta la posición de la paginación */
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: var(--background-color);
-  opacity: 1;
-  border: 1px solid var(--accent-color);
+    width: 10px;
+    height: 10px;
+    background-color: #9EBBAE ; /* Color gris de la bolita inactiva */
+    opacity: 1;
+    border: none;
+    margin: 0 14px;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
+    background-color: #b1c9d1; /* Color morado de la bolita activa */
 }
+    
+    
 /*--------------------------------------------------------------
+    
 # Portfolio Section
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
@@ -1151,7 +1144,7 @@ background-position: center
 
 .portfolio .portfolio-filters li:hover,
 .portfolio .portfolio-filters li.filter-active {
-  color: var(--accent-color);
+  color: #9EBBAE;
 }
 
 .portfolio .portfolio-filters li:first-child {
@@ -1170,7 +1163,7 @@ background-position: center
 }
 
 .portfolio .portfolio-content {
-  background-color: var(--surface-color);
+  background-color: #9EBBAE;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   height: 100%;
   overflow: hidden;
@@ -1183,7 +1176,7 @@ background-position: center
 }
 
 .portfolio .portfolio-content .portfolio-info {
-  background-color: var(--background-color);
+  background-color: #9EBBAE ;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   padding: 25px 20px;
   position: relative;
@@ -1197,16 +1190,16 @@ background-position: center
 }
 
 .portfolio .portfolio-content .portfolio-info h4 a {
-  color: var(--heading-color);
+  color: ##9EBBAE;
   transition: 0.3s;
 }
 
 .portfolio .portfolio-content .portfolio-info h4 a:hover {
-  color: var(--accent-color);
+  color: #9EBBAE;
 }
 
 .portfolio .portfolio-content .portfolio-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  color: #9EBBAE;
   font-size: 14px;
   margin-bottom: 0;
   padding-right: 50px;
@@ -1600,7 +1593,7 @@ background-position: center
 
 .portfolio-details .swiper-button-prev:after,
 .portfolio-details .swiper-button-next:after {
-  color: rgba(255, 255, 255, 0.8);
+ 0 color: rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.15);
   font-size: 24px;
   border-radius: 50%;
@@ -1712,7 +1705,7 @@ background-position: center
   width: 90px;
   border-radius: 50px;
   border: 6px solid var(--background-color);
-  float: left;
+  float: center;
   margin: 0 10px 0 0;
 }
 
@@ -1725,7 +1718,7 @@ background-position: center
 
 .portfolio-details .portfolio-description .testimonial-item h4 {
   font-size: 14px;
-  color: #6c757d;
+  color: #9EBBAE;
   margin: 0;
 }
 
